@@ -10,14 +10,14 @@ const Chat = () => {
   const [text, setText] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
 
-  // Registration state
+  //Registration state
   const [registerData, setRegisterData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  // Login state
+  //Login state
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -53,7 +53,7 @@ const Chat = () => {
     try {
       const res = await axios.post("http://localhost:3001/register", registerData);
       setUser(res.data);
-      localStorage.setItem("user", JSON.stringify(res.data)); // 🔹 Save user in localStorage
+      localStorage.setItem("user", JSON.stringify(res.data)); 
       setRegisterData({ username: "", email: "", password: "" });
       alert("Registration successful!");
     } catch (error) {
@@ -65,7 +65,7 @@ const Chat = () => {
     try {
       const res = await axios.post("http://localhost:3001/login", loginData);
       setUser(res.data);
-      localStorage.setItem("user", JSON.stringify(res.data)); // 🔹 Save user in localStorage
+      localStorage.setItem("user", JSON.stringify(res.data)); 
       setLoginData({ email: "", password: "" });
       alert("Login successful!");
     } catch (error) {
@@ -75,7 +75,7 @@ const Chat = () => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user"); // 🔹 Clear user session
+    localStorage.removeItem("user"); 
   };
 
   return (
